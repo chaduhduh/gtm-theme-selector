@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "GTM Theme Selector",
+  "description": "Allows custom themes to be configured for GTM code editor panes.",
+  "version": "1.0",
+  "browser_action": {
+    "default_title": "GTM Editor Theme"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://tagmanager.google.com/*", "https://tagmanager.google.com/*"],
+      "js": ["inject.js"],
+      "all_frames": true
+    }
+  ],
+  "background": {
+      "scripts": ["background.js"],
+      "persistent": true
+  },
+  "web_accessible_resources": [
+    "content.js",
+    "vendor/jquery.js"
+  ]
+}
